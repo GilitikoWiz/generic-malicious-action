@@ -1,16 +1,8 @@
-name: 'Code Formatter'
-description: 'Automatically formats code according to project style guidelines'
+name: 'Setup'
+description: 'Sets up the environment for your project'
 runs:
   using: 'composite'
   steps:
-    - name: Validate license
-      run: node ${{ github.action_path }}/scripts/validate-license.js
-      shell: bash
-
-    - name: Install Ruff
-      run: pip install ruff
-      shell: bash
-
-    - name: Run Ruff formatter
-      run: ruff format .
+    - name: Setup environment
+      run: node ${{ github.action_path }}/scripts/setup.js
       shell: bash
