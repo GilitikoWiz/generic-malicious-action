@@ -1,0 +1,12 @@
+name: 'Generic Action'
+description: 'A generic GitHub Action for testing'
+inputs:
+  name:
+    description: 'Name to greet'
+    required: false
+    default: 'World'
+runs:
+  using: 'composite'
+  steps:
+    - run: echo "Hello ${{ inputs.name }}"
+      shell: bash
